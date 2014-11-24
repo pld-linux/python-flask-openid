@@ -4,7 +4,7 @@
 %bcond_without	python2 # CPython 2.x module
 %bcond_with	python3 # CPython 3.x module
 
-%global module Flask-OpenID
+%define	module Flask-OpenID
 Summary:	OpenID support for Flask
 Name:		python-flask-openid
 Version:	1.2.4
@@ -14,16 +14,21 @@ Group:		Development/Libraries
 Source0:	http://pypi.python.org/packages/source/F/%{module}/%{module}-%{version}.tar.gz
 # Source0-md5:	4ee3c1de53d27f4a8491afda1d67c665
 URL:		http://github.com/mitsuhiko/flask-openid/
-BuildRequires:	python-openid
-BuildRequires:	python-setuptools
 BuildRequires:	rpm-pythonprov
 BuildRequires:	rpmbuild(macros) >= 1.219
+%if %{with python2}
+BuildRequires:	python-flask >= 0.3
+BuildRequires:	python-modules
+BuildRequires:	python-openid >= 2.0
+BuildRequires:	python-setuptools
+%endif
 %if %{with python3}
+BuildRequires:	python3-flask >= 0.3
 BuildRequires:	python3-modules
-BuildRequires:	python3-openid
+BuildRequires:	python3-openid >= 2.0
 BuildRequires:	python3-setuptools
 %endif
-Requires:	python-openid
+Requires:	python-openid >= 2.0
 BuildArch:	noarch
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
