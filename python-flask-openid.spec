@@ -15,7 +15,7 @@ Source0:	http://pypi.python.org/packages/source/F/%{module}/%{module}-%{version}
 # Source0-md5:	4ee3c1de53d27f4a8491afda1d67c665
 URL:		http://github.com/mitsuhiko/flask-openid/
 BuildRequires:	rpm-pythonprov
-BuildRequires:	rpmbuild(macros) >= 1.219
+BuildRequires:	rpmbuild(macros) >= 1.710
 %if %{with python2}
 BuildRequires:	python-flask >= 0.3
 BuildRequires:	python-modules
